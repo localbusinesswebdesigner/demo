@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indalo Boutique | Luxury Hair & Nails</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+:root {
+    --champagne: #f7f4ea;
+    --gold: #c2a764;
+    --gold-dark: #a68c4c;
+    --slate: #22262a;
+    --slate-light: #363a3e;
+    --offwhite: #faf9f6;
+    --text: #444;
+    --gray: #e9e7e0;
+    --border: #ded9ca;
+    --shadow: 0 8px 24px rgba(62, 62, 62, 0.09);
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --transition: 0.3s cubic-bezier(.43,.34,.19,1);
+    --accent: #f5e6b2;
+}
+
+/* Background image with overlay */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.7;
+    overflow-x: hidden;
+    background:
+        linear-gradient(120deg, rgba(247,244,234,0.94) 0%, rgba(250,249,246,0.95) 100%),
+        url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* All cards and main sections */
+.hero-content, .about-content, .product, .service, .testimonial, .cart-modal {
+    background: rgba(250,249,246,0.97);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, rgba(247,244,234,0.98) 70%, rgba(245,230,178,0.92) 100%);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation: fadeDown 1.1s;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+}
+
+.logo-placeholder {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    background: var(--champagne);
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    box-shadow: 0 2px 8px rgba(160,134,76,0.06);
+    letter-spacing: 2px;
+    transition: background var(--transition), color var(--transition);
+}
+
+.logo-placeholder:hover {
+    background: var(--gold);
+    color: var(--slate);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 18px;
+}
+
+.nav-menu li { list-style: none; }
+
+.nav-menu a {
+    color: var(--slate-light);
+    font-weight: 500;
+    font-size: 17px;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition), color var(--transition);
+    position: relative;
+}
+
+.nav-menu a:hover, .nav-menu a:focus {
+    color: var(--gold-dark);
+    background: var(--champagne);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Hide cart icon and cart count */
+.cart-icon {
+    display: none !important;
+}
+
+.header-icons div {
+    font-size: 21px;
+    color: var(--gold-dark);
+    cursor: pointer;
+    transition: color var(--transition), transform var(--transition);
+    position: relative;
+}
+
+.header-icons div:hover {
+    color: var(--gold);
+    transform: scale(1.15);
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--gold);
+    color: var(--offwhite);
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.cart-count.show { opacity: 1; }
+
+/* HERO */
+.hero {
+    width: 100%;
+    min-height: 480px;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://plus.unsplash.com/premium_photo-1661964237903-e25525c73a0b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdpZ3xlbnwwfHwwfHx8MA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, rgba(40,30,16,0.50) 0%, rgba(250,249,246,0.70) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 65px 35px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.80);
+    box-shadow: 0 8px 32px rgba(160,134,76,0.09);
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    color: var(--gold-dark);
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+    animation: fadeInText 1.2s;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 38px;
+    color: var(--slate-light);
+    font-weight: 400;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 36px;
+    background: linear-gradient(90deg, var(--gold) 70%, var(--gold-dark) 100%);
+    color: var(--offwhite);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 18px rgba(160,134,76,0.14);
+    cursor: pointer;
+    transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, var(--gold-dark) 60%, var(--gold) 100%);
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(160,134,76,0.18);
+}
+
+/* SECTION TITLE */
+.section-title {
+    text-align: center;
+    margin: 60px 0 40px;
+}
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    display: inline-block;
+    color: var(--gold-dark);
+    position: relative;
+    letter-spacing: 1px;
+}
+.section-title h2::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 40%, var(--gold-dark) 100%);
+    border-radius: 2px;
+}
+
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 32px;
+    margin-bottom: 80px;
+}
+
+.product {
+    transition: transform var(--transition), box-shadow var(--transition);
+    animation: fadeUpCard 1s;
+}
+
+.product:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(160,134,76,0.13);
+}
+
+.product-img {
+    height: 240px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+}
+
+.product:hover .product-img img {
+    transform: scale(1.14);
+}
+
+.product-content {
+    padding: 22px;
+}
+
+.product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 9px;
+    color: var(--slate-light);
+}
+
+.product-price {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    margin-bottom: 15px;
+    background: none;
+}
+
+.add-to-cart {
+    width: 100%;
+    background: linear-gradient(90deg, var(--gold) 70%, var(--gold-dark) 100%);
+    color: var(--offwhite);
+    border: none;
+    padding: 13px;
+    border-radius: var(--radius-sm);
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform var(--transition), background var(--transition);
+    box-shadow: 0 2px 8px rgba(160,134,76,0.10);
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(90deg, var(--gold-dark) 60%, var(--gold) 100%);
+    transform: scale(1.03);
+}
+
+/* ABOUT */
+.about {
+    padding: 90px 0;
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 46px;
+    padding: 54px;
+    animation: fadeUp 1.2s;
+}
+.about-img {
+    flex: 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(160,134,76,0.11);
+}
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
+}
+.about-text { flex: 1; }
+.about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: var(--gold-dark);
+}
+.about-text p {
+    margin-bottom: 15px;
+    color: var(--slate-light);
+    font-size: 18px;
+}
+
+/* SERVICES */
+.services {
+    padding: 80px 0;
+    background: linear-gradient(90deg, var(--champagne) 70%, var(--offwhite) 100%);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.service {
+    text-align: center;
+    padding: 46px 32px;
+    border-radius: var(--radius-md);
+    transition: transform var(--transition), box-shadow var(--transition);
+    animation: fadeUpCard 1.1s;
+}
+
+.service:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 32px rgba(160,134,76,0.12);
+}
+
+.service-icon {
+    font-size: 52px;
+    color: var(--gold-dark);
+    margin-bottom: 24px;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.service:hover .service-icon {
+    color: var(--gold);
+    transform: scale(1.2);
+}
+
+.service h3 {
+    margin-bottom: 15px;
+    color: var(--gold-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+.service p {
+    color: var(--slate-light);
+    font-size: 17px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+    padding: 80px 0;
+}
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+.testimonial {
+    padding: 32px;
+    border-radius: var(--radius-md);
+    animation: fadeUpCard 1.1s;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+.testimonial:hover {
+    box-shadow: 0 10px 32px rgba(160,134,76,0.12);
+    transform: scale(1.015);
+}
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--slate-light);
+    font-size: 17px;
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+.author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 2px 8px rgba(160,134,76,0.09);
+}
+.author-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.author-info h4 { color: var(--gold-dark); font-size: 18px; }
+.author-info p { color: var(--gold); font-size: 14px; }
+
+/* CART MODAL */
+.cart-modal {
+    display: none !important; /* Hide cart modal */
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(90deg, rgba(247,244,234,0.98) 70%, rgba(245,230,178,0.92) 100%);
+    color: var(--slate-light);
+    padding: 70px 0 34px;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 12px rgba(160,134,76,0.07);
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.footer-column h3 {
+    font-size: 21px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    color: var(--gold-dark);
+    font-family: 'Playfair Display', serif;
+}
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 38px; height: 2px;
+    background: linear-gradient(90deg, var(--gold) 40%, var(--gold-dark) 100%);
+    border-radius: 2px;
+}
+.footer-column p { margin-bottom: 13px; color: var(--slate-light); }
+.social-icons { display: flex; gap: 15px; }
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    background: var(--champagne);
+    border-radius: 50%;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+    border: 1px solid var(--gold);
+    color: var(--gold-dark);
+    font-size: 19px;
+}
+.social-icons a:hover {
+    background: var(--gold);
+    color: var(--offwhite);
+    transform: scale(1.11);
+}
+.footer-links li { margin-bottom: 8px; }
+.footer-links a {
+    transition: color var(--transition);
+    color: var(--slate-light);
+    font-size: 16px;
+}
+.footer-links a:hover { color: var(--gold-dark); }
+.copyright {
+    text-align: center;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+    color: var(--slate-light);
+    font-size: 16px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInText {
+    from { opacity: 0; letter-spacing: -0.06em;}
+    to { opacity: 1; letter-spacing: 2px;}
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeUpCard {
+    from { opacity: 0; transform: translateY(32px) scale(0.97);}
+    to { opacity: 1; transform: translateY(0) scale(1);}
+}
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(80px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .about-content { flex-direction: column; padding: 32px;}
+    .about-img, .about-text { flex: none; width: 100%;}
+}
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; padding: 15px 0;}
+    .nav-menu { margin: 15px 0; flex-wrap: wrap; justify-content: center;}
+    .hero h1 { font-size: 39px;}
+    .hero-content { padding: 38px 12px;}
+    .cart-modal { width: 100%;}
+    .services-grid, .testimonials-grid { grid-template-columns: 1fr;}
+}
+@media (max-width: 576px) {
+    .products { grid-template-columns: 1fr;}
+    .hero-content, .about-content { padding: 20px;}
+    .container { width: 98%; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; background: var(--champagne);}
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px;}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo-placeholder">Indalo Boutique</a>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="header-icons">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <!-- Cart icon is hidden via CSS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Luxury Hair & Nail Products</h1>
+            <p>Discover our premium collection of wigs, bundles, lace frontals, and nail products designed to enhance your beauty and confidence.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+     <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://www.trendywigsgallery.co.za/wp-content/uploads/2021/08/water-wave-bundles.jpg" alt="About Indalo Boutique">
+                </div>
+                <div class="about-text">
+                    <h2>About Indalo Boutique</h2>
+                    <p>Indalo Boutique is a luxury brand specializing in premium hair and nail products. We are committed to providing our customers with the highest quality products that enhance their natural beauty and boost their confidence.</p>
+                    <p>Our team of experts carefully selects each product in our collection to ensure it meets our strict standards of quality, durability, and style. We believe that everyone deserves to feel beautiful and empowered.</p>
+                    <p>With years of experience in the beauty industry, we understand what our customers need and strive to exceed their expectations with every purchase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+            </div>
+            <div class="products">
+                <!-- Product 1 -->
+                <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1593880223042-744ce9a4b58f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHdpZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Human Hair Wig">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Human Hair Wig</h3>
+                        <div class="product-price">R1,299.99</div>
+                        <button class="add-to-cart" data-id="1" data-name="Premium Human Hair Wig" data-price="1299.99" data-img="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product">
+                    <div class="product-img">
+                        <img src='images/waves/IMG-20250921-WA0030.jpg' alt="Hair Bundles">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Silky Hair Bundles</h3>
+                        <div class="product-price">R899.99</div>
+                        <button class="add-to-cart" data-id="2" data-name="Silky Hair Bundles" data-price="899.99" data-img="https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product">
+                    <div class="product-img">
+                        <img src='images/waves/IMG-20250922-WA0011.jpg' alt="Lace Frontal">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Lace Frontal</h3>
+                        <div class="product-price">R1,499.99</div>
+                        <button class="add-to-cart" data-id="3" data-name="Lace Frontal" data-price="1499.99" data-img="https://images.unsplash.com/photo-1595877244574-e90ce41ce089?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product">
+                    <div class="product-img">
+                        <img src='images/waves/IMG-20250922-WA0010.jpg' alt="Frontal">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Frontal</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product">
+                    <div class="product-img">
+                        <img src='images/waves/IMG-20250922-WA0009.jpg' alt="Frontal">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Frontal</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="5" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product">
+                    <div class="product-img">
+                        <img src='images/waves/IMG-20250921-WA0042.jpg' alt="Frontal">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Frontal</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="6" data-name="Frontal" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product">
+                    <div class="product-img">
+                        <img src='images/waves/IMG-20250921-WA0030.jpg' alt="Frontal">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Frontal</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Frontal" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src='images/waves/IMG-20250921-WA0029.jpg' alt="Frontal">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Frontal</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Frontal" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+
+                <!-- Product  -->
+                 <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1610992015762-45dca7fa3a85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmFpbHxlbnwwfHwwfHx8MA%3D%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                                <!-- Product  -->
+                 <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmFpbHxlbnwwfHwwfHx8MA%3D%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1608278618512-c5968bfa0523?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fG5haWx8ZW58MHx8MHx8fDA%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1563730049333-31f8f9161f4d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fG5haWx8ZW58MHx8MHx8fDA%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1633955726992-2b7c0d2d2a69?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fG5haWx8ZW58MHx8MHx8fDA%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fG5haWx8ZW58MHx8MHx8fDA%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1608278618512-c5968bfa0523?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fG5haWx8ZW58MHx8MHx8fDA%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1588015810531-dd522c9c8bbb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG5haWx8ZW58MHx8MHx8fDA%3D" alt="Nail Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Nail Kit</h3>
+                        <div class="product-price">R599.99</div>
+                        <button class="add-to-cart" data-id="4" data-name="Premium Nail Kit" data-price="599.99" data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Custom Wig Design</h3>
+                    <p>Our expert stylists will create a custom wig tailored to your specific preferences and measurements.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Nail Artistry</h3>
+                    <p>Experience our premium nail services with the latest trends and highest quality products.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Nationwide Delivery</h3>
+                    <p>We deliver our products nationwide with secure and fast shipping options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Testimonials</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The quality of the hair bundles I purchased from Indalo Boutique is exceptional. I've received so many compliments!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah M.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <p>Loyal Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Their nail products are the best I've ever used. Long-lasting and beautiful results every time!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Jessica K.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jessica K.</h4>
+                            <p>Nail Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The custom wig service changed my life! I've never felt more confident and beautiful."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/76.jpg" alt="Amanda T.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amanda T.</h4>
+                            <p>Wig Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal (hidden by CSS) -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <div class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total">
+            <div class="cart-total-title">Total:</div>
+            <div class="cart-total-amount" id="cart-total">R0.00</div>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Indalo Boutique</h3>
+                    <p>Luxury hair and nail products designed to enhance your natural beauty and boost your confidence.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Street, Johannesburg, SA</p>
+                    <p><i class="fas fa-phone"></i> +27 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@indaloboutique.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Indalo Boutique. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS stays unchanged, preserving payment method -->
+    <script>
+        // Cart functionality (unchanged, cart hidden via CSS)
+        let cart = [];
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const cartCount = document.getElementById('cart-count');
+        const checkoutBtn = document.getElementById('checkout-btn');
+
+        // Add to cart buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        // Cart icon is hidden, so do not open modal
+        // cartIcon.addEventListener('click', () => { cartModal.classList.add('open'); });
+        closeCart && closeCart.addEventListener('click', () => { cartModal.classList.remove('open'); });
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                const img = button.getAttribute('data-img');
+                const existingItem = cart.find(item => item.id === id);
+                if (existingItem) { existingItem.quantity++; }
+                else { cart.push({ id, name, price, img, quantity: 1 }); }
+                updateCart();
+                // cartModal.classList.add('open'); // Don't open modal
+            });
+        });
+
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            let count = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                count += item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <div class="cart-item-img">
+                        <img src="${item.img}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">R${item.price.toFixed(2)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                            <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                            <span class="remove-item" data-id="${item.id}"><i class="fas fa-trash"></i></span>
+                        </div>
+                    </div>`;
+                cartItems.appendChild(cartItem);
+            });
+            cartTotal.textContent = `R${total.toFixed(2)}`;
+            cartCount && (cartCount.textContent = count);
+            if (cartCount) {
+                if (count > 0) { cartCount.classList.add('show'); }
+                else { cartCount.classList.remove('show'); }
+            }
+            const decreaseButtons = document.querySelectorAll('.decrease');
+            const increaseButtons = document.querySelectorAll('.increase');
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const removeButtons = document.querySelectorAll('.remove-item');
+            decreaseButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    if (item.quantity > 1) { item.quantity--; }
+                    else { cart = cart.filter(item => item.id !== id); }
+                    updateCart();
+                });
+            });
+            increaseButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity++;
+                    updateCart();
+                });
+            });
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    const id = input.getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity = parseInt(input.value);
+                    if (item.quantity < 1) { cart = cart.filter(item => item.id !== id); }
+                    updateCart();
+                });
+            });
+            removeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    updateCart();
+                });
+            });
+        }
+
+        checkoutBtn && checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items to your cart before checking out.');
+                return;
+            }
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const yocoPaymentUrl = `https://pay.yoco.com/indalo-credit-repair?amount=${total.toFixed(2)}`;
+            window.location.href = yocoPaymentUrl;
+        });
+
+        updateCart();
+    </script>
+</body>
+</html>
